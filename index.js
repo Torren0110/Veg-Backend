@@ -7,9 +7,10 @@ const orders = require("./routes/orders")
 const sales = require("./routes/sales")
 const mongoose = require("mongoose");
 const app = express();
+const process = require("process");
 
 mongoose
-  .connect("mongodb://0.0.0.0/Veg-Logs")
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to mongoDB..."));
 
@@ -21,7 +22,7 @@ app.use("/api/carts", carts);
 app.use("/api/orders", orders);
 app.use("/api/sales", sales);
 
-const port = 3000;
+const port = process.env.PORT;
 
 app.listen(port, () => {
   console.log(`Listning on ${port}...`);
