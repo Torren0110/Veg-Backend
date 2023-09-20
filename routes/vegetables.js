@@ -8,7 +8,7 @@ const path = require("path");
 const fs = require("fs");
 const router = express.Router();
 const { v4: uuidv4 } = require('uuid');
-const imageURLBase = "http://localhost:3000/api/vegetables/image/";
+const imageURLBase = "https://node-veg-backend.onrender.com/api/vegetables/image/";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
